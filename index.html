@@ -1,92 +1,55 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>謝禮雋的履歷</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #004080;
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      margin-top: 10px;
-      font-size: 1.2em;
-    }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #004080;
-      margin-top: 0;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li {
-      margin-bottom: 8px;
-    }
-    .project-card {
-      border: 1px solid #ddd;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .project-card h3 {
-      margin-top: 0;
-    }
-    .contact a {
-      color: #004080;
-      text-decoration: none;
-      margin-right: 15px;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>謝禮雋的履歷</title>
+<style>
+  body {font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#f9f9f9; color:#333;}
+  header {background:#004080; color:#fff; text-align:center; padding:60px 20px;}
+  header h1 {margin:0; font-size:2.5em;}
+  header p {margin-top:10px; font-size:1.2em;}
+  section {max-width:900px; margin:40px auto; background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); opacity:0; transform: translateY(20px); transition: all 0.8s ease;}
+  section.visible {opacity:1; transform: translateY(0);}
+  h2 {color:#004080; margin-top:0;}
+  ul {list-style:none; padding:0;}
+  ul li {margin-bottom:8px;}
+  .skill-bar {background:#ddd; border-radius:20px; overflow:hidden; margin-bottom:10px;}
+  .skill-fill {height:15px; background:#004080; width:0; border-radius:20px;}
+  .project-card {border:1px solid #ddd; padding:15px; border-radius:8px; margin-bottom:20px; transition: transform 0.3s;}
+  .project-card:hover {transform: scale(1.03);}
+  .project-card button {background:#004080; color:#fff; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;}
+  .project-card button:hover {background:#0066cc;}
+  .contact a {color:#004080; text-decoration:none; margin-right:15px;}
+  .contact a:hover {text-decoration:underline;}
+  .timeline {position:relative; padding-left:30px;}
+  .timeline li {position:relative; margin-bottom:15px; padding-left:15px;}
+  .timeline li::before {content:''; position:absolute; left:0; top:5px; width:10px; height:10px; background:#004080; border-radius:50%;}
+</style>
 </head>
 <body>
 
 <header>
   <h1>謝禮雋</h1>
-  <p>金融背景 × 證券興趣的跨域探索者</p>
+  <p>金融專業 × 證券興趣的跨域學習者</p>
 </header>
 
-<section>
+<section id="about">
   <h2>About Me</h2>
-  <p>我對金融和證券市場有濃厚興趣，並透過 Python、LLM 及簡單的 UI/UX 技術，把興趣延伸成實作專案。喜歡將想法快速落地，並持續學習跨領域技能。</p>
+  <p>我對金融和證券市場有濃厚興趣，透過 Python、LLM 及簡單的 UI/UX 技術，把興趣延伸成實作專案。喜歡將想法快速落地，並持續學習跨領域技能。</p>
 </section>
 
-<section>
+<section id="skills">
   <h2>Skills</h2>
-  <ul>
-    <li><strong>金融專業：</strong>證券市場、投資分析、財務資料解讀</li>
-    <li><strong>技術技能：</strong>Python、Pandas、LLM、Streamlit、UI/UX</li>
-    <li><strong>軟性技能：</strong>跨領域整合、自學能力、問題解決</li>
-  </ul>
+  <p><strong>金融專業：</strong>證券市場、投資分析、財務資料解讀</p>
+  <p><strong>技術技能：</strong></p>
+  <div class="skill-bar"><div class="skill-fill" data-skill="80%"></div>Python 80%</div>
+  <div class="skill-bar"><div class="skill-fill" data-skill="60%"></div>LLM 60%</div>
+  <div class="skill-bar"><div class="skill-fill" data-skill="50%"></div>UI/UX 50%</div>
+  <div class="skill-bar"><div class="skill-fill" data-skill="50%"></div>Streamlit 50%</div>
 </section>
 
-<section>
+<section id="project">
   <h2>Project</h2>
   <div class="project-card">
     <h3>股票回測系統 (Stock Backtesting System)</h3>
@@ -98,27 +61,44 @@
       <li>Streamlit 雲端部署</li>
     </ul>
     <p><strong>技術：</strong>Python、Pandas、YFinance / API、Streamlit</p>
+    <button onclick="window.open('#', '_blank')">View Demo</button>
   </div>
 </section>
 
-<section>
+<section id="roadmap">
   <h2>Future Roadmap</h2>
-  <ul>
-    <li>開發更多回測策略模組</li>
-    <li>改善專案視覺化與 UI/UX</li>
-    <li>探索 LLM 在證券分析中的應用</li>
-    <li>嘗試其他雲端部署與工具整合</li>
+  <ul class="timeline">
+    <li title="開發更多回測策略模組">策略模組擴充</li>
+    <li title="改善專案視覺化與 UI/UX">視覺化優化</li>
+    <li title="探索 LLM 在證券分析中的應用">LLM 證券分析</li>
+    <li title="嘗試其他雲端部署與工具整合">雲端與工具整合</li>
   </ul>
 </section>
 
-<section>
+<section id="contact">
   <h2>Contact</h2>
   <div class="contact">
     <a href="mailto:samule.hsieh@gmail.com">Email</a>
-    <a href="https://github.com/samule-hsieh" target="_blank">GitHub</a>
-    <!-- 可以再加入 LinkedIn 或其他社群 -->
+    <a href="https://github.com/samule.hsieh@gmail.com" target="_blank">GitHub</a>
   </div>
 </section>
+
+<script>
+  // 滾動淡入效果
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){entry.target.classList.add('visible');}
+    });
+  }, {threshold:0.1});
+  sections.forEach(section => observer.observe(section));
+
+  // 技能條動畫
+  const skillFills = document.querySelectorAll('.skill-fill');
+  skillFills.forEach(fill => {
+    setTimeout(()=>{fill.style.width = fill.dataset.skill;}, 500);
+  });
+</script>
 
 </body>
 </html>
