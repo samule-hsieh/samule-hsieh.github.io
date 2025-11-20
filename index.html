@@ -6,71 +6,59 @@
 <title>謝禮雋的履歷</title>
 <style>
   body {font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#f9f9f9; color:#333;}
-  header {background:#004080; color:#fff; text-align:center; padding:60px 20px;}
+  header {background:#004080; color:#fff; text-align:center; padding:60px 20px; position:relative;}
   header h1 {margin:0; font-size:2.5em;}
   header p {margin-top:10px; font-size:1.2em;}
+  header img {position:absolute; top:20px; left:20px; width:50px; height:50px; border-radius:50%;}
   section {max-width:900px; margin:40px auto; background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); opacity:0; transform: translateY(20px); transition: all 0.8s ease;}
   section.visible {opacity:1; transform: translateY(0);}
   h2 {color:#004080; margin-top:0;}
   ul {list-style:none; padding:0;}
   ul li {margin-bottom:8px;}
-  .skill-bar {background:#ddd; border-radius:20px; overflow:hidden; margin-bottom:10px;}
-  .skill-fill {height:15px; background:#004080; width:0; border-radius:20px;}
+
+  /* Skills */
+  .skill-item {margin-bottom:15px;}
+  .skill-item span {display:inline-block; width:100px;}
+  .skill-bar {display:inline-block; width:70%; height:15px; background:#ddd; border-radius:8px; vertical-align:middle; overflow:hidden;}
+  .skill-fill {height:100%; background:#004080; width:0; transition: width 1s ease;}
+
+  /* Projects */
   .project-card {border:1px solid #ddd; padding:15px; border-radius:8px; margin-bottom:20px; transition: transform 0.3s;}
   .project-card:hover {transform: scale(1.03);}
   .project-card button {background:#004080; color:#fff; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;}
   .project-card button:hover {background:#0066cc;}
+
+  /* Timeline */
+  .timeline {position:relative; padding-left:30px;}
+  .timeline li {position:relative; margin-bottom:15px; padding-left:15px; cursor:default;}
+  .timeline li::before {content:''; position:absolute; left:0; top:5px; width:10px; height:10px; background:#004080; border-radius:50%;}
+
+  /* Contact */
   .contact a {color:#004080; text-decoration:none; margin-right:15px;}
   .contact a:hover {text-decoration:underline;}
-  .timeline {position:relative; padding-left:30px;}
-  .timeline li {position:relative; margin-bottom:15px; padding-left:15px;}
-  .timeline li::before {content:''; position:absolute; left:0; top:5px; width:10px; height:10px; background:#004080; border-radius:50%;}
 </style>
 </head>
 <body>
 
 <header>
+  <img src="https://via.placeholder.com/50" alt="Logo">
   <h1>謝禮雋</h1>
-  <p>金融專業 × 證券興趣的跨域學習者</p>
+  <p>金融專業 × 證券興趣的跨域探索者</p>
 </header>
 
 <section id="about">
   <h2>About Me</h2>
-  <p>我對金融和證券市場有濃厚興趣，透過 Python、LLM 及簡單的 UI/UX 技術，把興趣延伸成實作專案。喜歡將想法快速落地，並持續學習跨領域技能。</p>
+  <p>我對金融和證券市場有濃厚興趣，並透過 Python、LLM 及簡單的 UI/UX 技術，把興趣延伸成實作專案。喜歡將想法快速落地，並持續學習跨領域技能。</p>
 </section>
 
 <section id="skills">
   <h2>Skills</h2>
   <p><strong>金融專業：</strong>證券市場、投資分析、財務資料解讀</p>
-  <p><strong>技術技能：</strong></p>
-  <div class="skill-item">
-  <span>Python</span>
-  <div class="skill-bar">
-    <div class="skill-fill" style="width:80%;"></div>
-  </div>
-</div>
-
-<div class="skill-item">
-  <span>LLM</span>
-  <div class="skill-bar">
-    <div class="skill-fill" style="width:60%;"></div>
-  </div>
-</div>
-
-<div class="skill-item">
-  <span>UI/UX</span>
-  <div class="skill-bar">
-    <div class="skill-fill" style="width:50%;"></div>
-  </div>
-</div>
-
-<div class="skill-item">
-  <span>Streamlit</span>
-  <div class="skill-bar">
-    <div class="skill-fill" style="width:50%;"></div>
-  </div>
-</div>
-
+  <p><strong>跨域技術技能：</strong></p>
+  <div class="skill-item"><span>Python</span><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div> 80%</div>
+  <div class="skill-item"><span>LLM</span><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div> 60%</div>
+  <div class="skill-item"><span>UI/UX</span><div class="skill-bar"><div class="skill-fill" style="width:50%;"></div></div> 50%</div>
+  <div class="skill-item"><span>Streamlit</span><div class="skill-bar"><div class="skill-fill" style="width:50%;"></div></div> 50%</div>
 </section>
 
 <section id="project">
@@ -103,12 +91,12 @@
   <h2>Contact</h2>
   <div class="contact">
     <a href="mailto:samule.hsieh@gmail.com">Email</a>
-    <a href="https://github.com/samule.hsieh@gmail.com" target="_blank">GitHub</a>
+    <a href="https://github.com/samule-hsieh" target="_blank">GitHub</a>
   </div>
 </section>
 
 <script>
-  // 滾動淡入效果
+  // 滾動淡入動畫
   const sections = document.querySelectorAll('section');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -116,12 +104,6 @@
     });
   }, {threshold:0.1});
   sections.forEach(section => observer.observe(section));
-
-  // 技能條動畫
-  const skillFills = document.querySelectorAll('.skill-fill');
-  skillFills.forEach(fill => {
-    setTimeout(()=>{fill.style.width = fill.dataset.skill;}, 500);
-  });
 </script>
 
 </body>
