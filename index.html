@@ -40,11 +40,31 @@
 </head>
 <body>
 
-<header style="text-align:center; padding:60px 20px; background:#004080; color:#fff;">
-  <img src="profile.jpg" alt="大頭貼" style="width:120px; height:120px; border-radius:50%; display:block; margin:0 auto 20px;">
-  <h1>謝禮雋</h1>
+<header>
+  <!-- 大頭貼置中 -->
+  <img src="profile.jpg" alt="大頭貼" class="profile">
+  
+  <!-- 名字與描述 -->
+  <h1>XXX</h1>
   <p>金融專業 × 證券興趣的跨域探索者</p>
 </header>
+
+<style>
+header {
+  text-align: center;           /* 文字置中 */
+  background: #004080;          /* 背景色 */
+  color: #fff;                  /* 文字顏色 */
+  padding: 60px 20px;           /* 上下間距 */
+}
+
+header img.profile {
+  width: 120px;                 /* 大頭貼寬度 */
+  height: 120px;                /* 大頭貼高度 */
+  border-radius: 50%;           /* 圓形 */
+  display: block;               /* 轉為 block 元素 */
+  margin: 0 auto 20px;          /* 水平置中，並在下方加間距 */
+}
+</style>
 
 
 <section id="about">
